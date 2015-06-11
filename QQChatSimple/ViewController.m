@@ -102,7 +102,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AOMessage *model = self.dataList[indexPath.row];
     NSString *ID = model.type == AOMessageTypeMe ? @"me" : @"other";
-    AOMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
+    AOMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     cell.model = self.dataList[indexPath.row];
     return cell;
 }
@@ -111,5 +111,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self.view endEditing:YES];
+}
 
 @end

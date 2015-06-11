@@ -26,7 +26,7 @@
 }
 
 - (void)setModel:(AOMessage *)model {
-//    self.contentView.bounds = CGRectMake(0, 0, 9999, 9999);
+    self.contentView.bounds = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 9999);
     _model = model;
 
     self.timeLabel.text = _model.time;
